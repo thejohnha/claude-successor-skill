@@ -31,7 +31,8 @@
 #   CLAUDE_CONFIG_DIR    Claude Code's config dir        (default ~/.claude)
 #
 # Cron needs a PATH that finds herdr, jq, python3 and this repo's bin/, e.g.:
-#   */10 * * * * PATH=$HOME/claude-successor-skill/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin claude_auto_successor.sh
+#   */10 * * * * PATH=$HOME/claude-successor-skill/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin claude_auto_successor.sh
+# (on macOS with Homebrew, add /opt/homebrew/bin)
 
 THRESHOLD=${SUCCESSOR_THRESHOLD:-250000}
 IDLE_MIN=${SUCCESSOR_IDLE_MIN:-30}

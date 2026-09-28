@@ -73,9 +73,13 @@ run `/successor` when all of these hold:
 Each session is told at most once, and at most one session per run. The log at
 `~/.claude_auto_successor.log` doubles as its memory.
 
+Cron starts with a bare PATH, so give it the folders holding `herdr`, `jq` and `python3` —
+`dirname "$(command -v herdr)"` prints one. On Linux that is usually `~/.local/bin` plus the system
+folders; on macOS with Homebrew, add `/opt/homebrew/bin`.
+
 ```bash
 crontab -e
-*/10 * * * * PATH=$HOME/claude-successor-skill/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin claude_auto_successor.sh
+*/10 * * * * PATH=$HOME/claude-successor-skill/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin claude_auto_successor.sh
 ```
 
 | Variable | Default |
